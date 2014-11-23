@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!ld*ik^p(5*9j20r3mip%vqmc2#l^vo&a-8o8-i2fu*by7b!na'
+SECRET_KEY = 'bx%x9ay9dsc&8qpdaqn071dg)kk83^^#4fs&vk!@^6p!xp!v78'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'kkk',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,3 +83,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    "D:\\project\\test_board\\templates",
+    
+)
