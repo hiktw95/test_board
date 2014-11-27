@@ -1,0 +1,15 @@
+<!Doctype html>
+{% load staticfiles %}
+<html lang="ko">
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/common.js" %}"></script>
+    <title>게시판</title>
+    {% block head_add %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

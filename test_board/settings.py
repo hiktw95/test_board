@@ -84,7 +84,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    'static',
+)
 TEMPLATE_DIRS = (
-    "D:\\project\\test_board\\templates",
+    'templates',
     
 )
+
+UPLOAD_DIR = (
+    os.path.join(BASE_DIR, "upload"),
+    'upload',
+)
+

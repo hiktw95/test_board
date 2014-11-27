@@ -1,7 +1,16 @@
-{% comment %}
-board_data: <strong>{{ board_data }}</strong>
-{% endcomment %}
-<table cellspacing=1 width=700 border=1>
+{% extends "_layout.html" %}
+{% block head_add %}
+{% endblock %}
+{% block content %}
+<table class="table" >
+    <tr>
+        <td> <a href="/board"><button class="btn btn-default btn-primary">뒤로</button></a></td>
+        <td>
+            {{ user_data.email }} 님 <a href="/logout"><button class="btn btn-default btn-primary">Logout</button></a>
+        </td>
+    </tr>
+</table>
+<table class="table table-striped">
     <tr>
         <td width=50><p align=center>번호</p>
         </td>
@@ -33,3 +42,9 @@ board_data: <strong>{{ board_data }}</strong>
         </td>
     </tr>
 </table>
+{% if user_data.email == board_data.user_id %}
+<a href="/modify_page?view_id={{board_data.id}}"><button class="btn btn-default btn-primary">수정</button></a>
+<a href="/delete?view_id={{board_data.id}}"><button class="btn btn-default btn-primary">삭제</button></a>
+{% endif%}
+
+{% endblock %}

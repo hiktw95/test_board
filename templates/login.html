@@ -1,34 +1,21 @@
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-  <script language="javascript">
-    // 자바 스크립트 시작
-    function writeCheck() {
-        var form = document.writeform;
-        if (!form.user_id.value) {
-            alert("ID를 입력하세요");
-            form.user_id.focus();
-            return;
-        }
-        if (!form.user_pw.value) {
-            alert("Password를 입력하세요");
-            form.user_pw.focus();
-            return;
-        }        
-                
-        form.submit();    
-    }
-</script>
-  <title>login</title>
- </head>
- <body>
-  <form name=writeform method=post action="/login">
-   ID : <input type="text" name="user_id" id="user_id"><br><br>
-   Pw : <input type="password" name="user_pw" id="user_pw"><br><br>
-   <input type=button value="Login" OnClick="javascript:writeCheck();">
-   {% csrf_token %}
-  </form>
-  <br>
-  <button onClick="window.location='/regist'">sign in</button>
- </body>
-</html>
+{% extends "_layout.html" %}
+{% load staticfiles %}
+{% block head_add %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <img src="{% static "img/ci.png" %}">
+    <br><br>
+    <form class="form-signin"method=post action="/login" id='loginform' onsubmit='return loginsubmit()'>
+        <input type="text" class="form-control" name="user_id" placeholder="User Id" autofocus>
+            <br>
+        <input type="password" class="form-control" placeholder="Password" name="user_pw">
+            <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        {% csrf_token %}
+    </form>
+    <br>
+    <a href="/regist"><button class="btn btn-lg btn-primary btn-block">Sign up</button></a>
+</div>
+{% endblock %}

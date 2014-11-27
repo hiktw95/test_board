@@ -1,29 +1,32 @@
-{% comment %}
-totalCnt: <strong>{{ totalCnt }}</strong> boardList: <strong>{{ boardList}}</strong>
-{% endcomment %}
-<table cellspacing=1 width=700 border=0>
+{% extends "_layout.html" %}
+{% block head_add %}
+{% endblock %}
+{% block content %}
+<table class="table" >
     <tr>
-        <td>총 게시물수: {{ totalCnt }}</td>
+        <td> 총 게시물수: {{ totalCnt }}</td>
+        <td>
+        <a href="/logout"><button class="btn btn-default btn-primary">Logout</button></a>
         </td>
     </tr>
 </table>
 
-<table cellspacing=1 width=700 border=1>
+<table class="table table-striped">
     <tr>
-        <td width=50><p align=center>번호</p>
-        </td>
-        <td width=100><p align=center>이름</p>
-        </td>
-        <td width=320><p align=center>제목</p>
-        </td>
-        <td width=100><p align=center>조회수</p>
-        </td>
+        <th width=50><p align=center>번호</p>
+        </th>
+        <th width=100><p align=center>이름</p>
+        </th>
+        <th width=320><p align=center>제목</p>
+        </th>
+        <th width=100><p align=center>조회수</p>
+        </th>
     </tr>
 	 {% if boardList %}
         <ul>
             {% for boardRow in boardList %}     
             <tr>
-            <td width=50><p align=center>{{ boardRow.id }}</p></td>
+            <th width=50><p align=center>{{ boardRow.id }}</p></th>
             <td width=100><p align=center>{{ boardRow.user_id }}</p></td>                
             <td width=320><a href="/view_page?view_id={{ boardRow.id }}"
                <p align=center>{{ boardRow.board_title }}</p>
@@ -37,9 +40,5 @@ totalCnt: <strong>{{ totalCnt }}</strong> boardList: <strong>{{ boardList}}</str
     {% endif %}
 
 </table>
-
-<table width=700>
-    <tr>
-        <td><input type=button value="글쓰기"  OnClick="window.location='/write'">    </td>
-    </tr>
-</table>
+ <a href="/write"><button class="btn btn-default btn-primary">글쓰기</button></a>
+{% endblock %}

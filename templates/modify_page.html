@@ -1,0 +1,16 @@
+{% extends "_layout.html" %}
+{% block head_add %}
+{% endblock %}
+{% block content %}
+<table class='table'>
+<form id='writeform' method=post action="/modify" onsubmit='return writesubmit()'>
+<input type="hidden" name='view_id' value="{{board_data.id}}">
+    <tr><td><b>작성자</b></td><td><b>{{board_data.user_id}}</b></td>
+<tr><td><b>제목</b></td><td><input type=text name=board_title size=50  maxlength=20 value='{{board_data.board_title}}'></td></tr>
+<tr><td><b>내용</b></td><td><textarea name=board_content cols=50 rows=10>{{board_data.board_content}}</textarea></td></tr>
+
+</table>
+{% csrf_token %}
+<button class="btn btn-default btn-primary" type="submit">Modify</button>
+</form>
+{% endblock %}
